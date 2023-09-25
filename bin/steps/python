@@ -11,11 +11,11 @@ PYTHON_VERSION=$(cat runtime.txt)
 # The location of the pre-compiled python binary.
 PYTHON_URL="${S3_BASE_URL}/${STACK}/runtimes/${PYTHON_VERSION}.tar.gz"
 
-if ! curl --output /dev/null --silent --head --fail --retry 3 --retry-connrefused --connect-timeout 5 "${PYTHON_URL}"; then
-  puts-warn "Requested runtime '${PYTHON_VERSION}' is not available for this stack (${STACK})."
-  puts-warn "For supported versions, see: https://devcenter.heroku.com/articles/python-support"
-  exit 1
-fi
+# if ! curl --output /dev/null --silent --head --fail --retry 3 --retry-connrefused --connect-timeout 5 "${PYTHON_URL}"; then
+#   puts-warn "Requested runtime '${PYTHON_VERSION}' is not available for this stack (${STACK})."
+#   puts-warn "For supported versions, see: https://devcenter.heroku.com/articles/python-support"
+#   exit 1
+# fi
 
 function eol_python_version_error() {
   local major_version="${1}"
